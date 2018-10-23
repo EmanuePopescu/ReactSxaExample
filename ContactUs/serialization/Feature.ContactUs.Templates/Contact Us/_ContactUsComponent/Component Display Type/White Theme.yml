@@ -1,0 +1,25 @@
+﻿---
+ID: "ae678eff-488c-475f-9b0a-90a62d70e988"
+Parent: "c09373e1-50e4-42d5-843c-01b0682cb5dc"
+Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
+Path: /sitecore/templates/Feature/Contact Us/_ContactUsComponent/Component Display Type/White Theme
+DB: master
+SharedFields:
+- ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
+  Hint: Type
+  Value: Checkbox
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
+Languages:
+- Language: en
+  Fields:
+  - ID: "9541e67d-ce8c-4225-803d-33f7f29f09ef"
+    Hint: __Short description
+    Value: "By default the component background colour is dark-grey. If you want the white background colour check this property"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181008T154212Z

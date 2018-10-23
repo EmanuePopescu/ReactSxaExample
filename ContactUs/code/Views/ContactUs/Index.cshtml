@@ -1,0 +1,7 @@
+﻿@using React.Web.Mvc
+@model Feature.ContactUs.Models.Renderings.ContactUsRenderings
+
+@if (Model != null)
+{
+    @Html.React("Components.ContactUs", new { Data = Model.ReactViewModel}, clientOnly: true)
+}

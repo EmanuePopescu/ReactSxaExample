@@ -1,0 +1,18 @@
+﻿---
+ID: "cd541563-af72-4473-8a7a-ae73e68c2ff9"
+Parent: "47b65950-7f81-4ee0-b9d4-b53d3b371252"
+Template: "e269fbb5-3750-427a-9149-7aa950b49301"
+Path: /sitecore/templates/Feature/Contact Us/_ContactEnquiry/Enquiry Details
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20181004T152304Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin

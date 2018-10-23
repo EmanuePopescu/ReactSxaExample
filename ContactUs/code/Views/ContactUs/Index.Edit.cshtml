@@ -1,0 +1,53 @@
+﻿@using Glass.Mapper.Sc.Web.Mvc
+@using Sitecore.Mvc
+@using Sitecore.XA.Foundation.SitecoreExtensions.Extensions
+@using Sitecore.XA.Foundation.MarkupDecorator.Extensions
+@model Feature.ContactUs.Models.Renderings.ContactUsRenderings
+
+@if (Model != null || Html.Sxa().IsEdit)
+{
+    var verticalLayout = Model.DataSource != null && Model.DataSource.VerticalDisplay == "1" ? "flex-column" : "flex-row";
+    var verticalLayoutEnquiry = Model.DataSource != null && Model.DataSource.VerticalDisplay != "1" ? "" : "w-33 pb-5 border-right";
+    var verticalLayoutContact = Model.DataSource != null && Model.DataSource.VerticalDisplay != "1" ? "" : "w-33 pb-5 d-flex flex-column justify-content-center align-items-center";
+    var verticalLayoutContactCTA = Model.DataSource != null && Model.DataSource.VerticalDisplay != "1" ? "" : "w-33 pb-5 d-flex flex-column justify-content-center align-items-center";
+
+
+    <div @Html.Sxa().Component("ContactUs", Model.Attributes) class="d-flex module module--dark module--no-shadow @verticalLayout">
+        @if (Model.DataSource != null)
+        {
+            foreach (var timetable in Model.DataSource.ContactEnquiries)
+            {
+                using (Html.Glass().BeginEditFrame(timetable, "Edit Enquiry", x => x.Title, x => x.PhoneNumber, x=>x.OpeningTimes))
+                {
+                    <div class="p-4 @verticalLayoutEnquiry">
+                        <p class="copy copy--shortform font-weight-bold mb-1 ml-2">@timetable.Title</p>
+                        <p class="number number--rg ml-2">@timetable.PhoneNumber</p>
+                        <table>
+                            <tbody>
+                            @foreach (var opening in timetable.OpeningTimes)
+                            {
+                                <tr class="text-sm">
+                                    <td class="text-sm">@opening.Key</td>
+                                    <td>@opening.Value</td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            }
+        }
+        @using (Html.Glass().BeginEditFrame(Model.DataSource, "Edit CTA Section", x => x.Icon, x => x.Text, x => x.CTALink))
+        {
+        <div class="p-4 @verticalLayoutContact">
+            <p class="mb-0 text-sm ml-2 @verticalLayoutContactCTA">
+                @Model.DataSource.Text
+                <a href="@Model.DataSource.CTALinkUrl" class="c-link">
+                    @Model.DataSource.CTALinkLabel
+                </a>
+            </p>
+
+        </div>
+        }
+    </div>
+}
